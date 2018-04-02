@@ -9,6 +9,8 @@ namespace CodeKatas
     {
         /// <summary>
         /// Compares that the elements in b are the elements in a squared, regardless of the order.
+        /// First, identify if the square elements in a are in b
+        /// Second, indentify if the square root elements of b are in a
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -21,6 +23,18 @@ namespace CodeKatas
                 bool match = Array.Exists(
                     b,
                     element => element == square
+                );
+                if (match == false)
+                {
+                    return false;
+                }
+            }
+            foreach(int item in b)
+            {
+                int squareRoot = (int) Math.Sqrt(item);
+                bool match = Array.Exists(
+                    a,
+                    element => element == squareRoot
                 );
                 if (match == false)
                 {
